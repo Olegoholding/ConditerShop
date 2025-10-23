@@ -36,24 +36,33 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
-            <UniformGrid>
-                <TextBox Margin="15" FontSize="22"/>
-                <TextBox Margin="15" FontSize="22"/>
-                <TextBox Margin="15" FontSize="22"/>
-                <TextBox Margin="15" FontSize="22"/>
-            </UniformGrid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                
+                <StackPanel>
+                    <TextBlock Text="Поиск:" Margin="15,15,15,0" FontWeight="Bold" FontSize="16"/>
+                    <TextBox Name="TexxtBox" FontSize="22" Margin="15,0,15,15"/>
+                </StackPanel>
 
-            <StackPanel Grid.Column="1" >
-                <Button Margin="15" Height="60" Width="200">
+                <Button Name="SrcBtn" Click="SrcBtn_Click" Grid.Row="1" Margin="15" Height="60">
+                    <TextBlock Name="SrcBtnText" Foreground="{DynamicResource Current}" Text="Поиск" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                </Button>
+
+            </Grid>
+            
+            <StackPanel Grid.Column="1">
+                <Button Name="AddBtn" Click="AddBtn_Click" Margin="15" Height="60" Width="200">
                     <TextBlock Foreground="{DynamicResource Current}" Text="Добавить" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
                 </Button>
 
-                <Button Margin="15,0,15,15" Height="60" Width="200">
+                <Button Name="DltBtn" Click="DltBtn_Click" Margin="15,0,15,15" Height="60" Width="200">
                     <TextBlock Foreground="{DynamicResource Current}" Text="Удалить" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
                 </Button>
             </StackPanel>
         </Grid>
-
-        <DataGrid Name="MainDataGrid" Grid.Row="1"/>
+        <DataGrid Grid.Row="1" Name="DataGrid" Margin="10,0,10,0"/>
     </Grid>
 </Page>

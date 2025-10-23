@@ -7,21 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="850" Width="1200">
     <Window.Resources>
-             
+
 
     </Window.Resources>
     <Grid Background="{DynamicResource Current}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="252.031"/>
+            <RowDefinition Height="47.969"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Border Background="{StaticResource Accent}" Margin="70,100,70,30" CornerRadius="40">
+        <Border Background="{StaticResource Accent}" Margin="70,100,70,30" CornerRadius="40" Grid.RowSpan="2">
             <TextBlock Foreground="{DynamicResource Current}" Text="Кондитерский магазин" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="72" FontWeight="Bold"/>
         </Border>
 
-        <Border Grid.Row="1" Background="{StaticResource Accent}" Margin="30" CornerRadius="40">
+        <Border Grid.Row="2" Background="{StaticResource Accent}" Margin="30,30,30,30" CornerRadius="40">
             <UniformGrid>
-                <Button x:Name="CandyTypeButton" Click="CandyTypeButton_Click" Margin="40">
+                <Button x:Name="CandyTypeButton" Tag="ВидыКонфет" Uid="Название" Click="CandyTypeButton_Click" Margin="40">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -38,11 +39,11 @@
                             </Canvas>
                         </Viewbox>
 
-                        <TextBlock Grid.Column="1" Text="Виды конфет" Foreground="{DynamicResource Current}" FontWeight="Bold" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="36"/>
+                        <TextBlock Name="KrutoyText" Grid.Column="1" Text="Виды конфет" Foreground="{DynamicResource Current}" FontWeight="Bold" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="36"/>
                     </Grid>
                 </Button>
 
-                <Button x:Name="ShopsButton" Click="ShopsButton_Click" Margin="40">
+                <Button x:Name="ShopsButton" Tag="ТорговыеТочки" Uid="Расположение" Click="CandyTypeButton_Click" Margin="40">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -62,8 +63,8 @@
                         <TextBlock Grid.Column="1" Text="Торговые точки" Foreground="{DynamicResource Current}" FontWeight="Bold" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="36"/>
                     </Grid>
                 </Button>
-                
-                <Button x:Name="SuppliersButton" Click="SuppliersButton_Click" Margin="40">
+
+                <Button x:Name="SuppliersButton" Tag="Поставщики" Uid="Название" Click="CandyTypeButton_Click" Margin="40">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -83,8 +84,8 @@
                         <TextBlock Grid.Column="1" Text="Поставщики" Foreground="{DynamicResource Current}" FontWeight="Bold" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="36"/>
                     </Grid>
                 </Button>
-                
-                <Button x:Name="JournalsButton" Click="JournalsButton_Click" Margin="40">
+
+                <Button x:Name="JournalsButton" Tag="ЖурналТовара" Uid="Статус" Click="CandyTypeButton_Click" Margin="40">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto"/>
@@ -101,7 +102,7 @@
                             </Canvas>
                         </Viewbox>
 
-                        <TextBlock Grid.Column="1" Text="Журналы" Foreground="{DynamicResource Current}" FontWeight="Bold" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="36"/>
+                        <TextBlock Grid.Column="1" Text="Журнал" Foreground="{DynamicResource Current}" FontWeight="Bold" VerticalAlignment="Center" Margin="15,0,0,0" FontSize="36"/>
                     </Grid>
                 </Button>
 
@@ -112,7 +113,8 @@
             <ComboBoxItem Content="Светлая"/>
             <ComboBoxItem Content="Тёмная"/>
         </ComboBox>
-        <Frame Name="Frame" Grid.RowSpan="2" NavigationUIVisibility="Hidden"/>
+        <Frame Name="Frame" Grid.RowSpan="3" NavigationUIVisibility="Hidden"/>
+        <Label Name="DateBox" Content="Label" HorizontalAlignment="Left" Margin="30,-2,0,0" VerticalAlignment="Top" Height="29" Width="148"/>
 
     </Grid>
 </Window>
